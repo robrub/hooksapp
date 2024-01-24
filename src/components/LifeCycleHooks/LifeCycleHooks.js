@@ -4,10 +4,6 @@ import React, {useState, useEffect} from 'react';
 const LifeCycleHooks = (props) => {
   const [counter, setCounter] = useState (props.counterProp);
 
-  const handleClick = () => {
-    setCounter (counter + 1);
-  };
-
   // React Hooks: componentDidMount and componentWilUnmount
   useEffect (() => {
     console.log ('LifeCycleHooks.js componentDidMount'); // React Hooks: componentDidMount
@@ -17,13 +13,18 @@ const LifeCycleHooks = (props) => {
   // React Hooks: componentWillReceiveProps
   useEffect (() => {
       setCounter (props.counterProp);
-    }, [props.counterProp]
+    }, 
+    [props.counterProp]
   );
 
   // React Hooks: componentDidUpdate
   useEffect (() => {
     console.log ('LifeCycleHooks.js  componentDidUpdate');
   });
+  
+  const handleClick = () => {
+    setCounter (counter + 1);
+  };
 
   return (
     <div>
